@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginxtest
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        editor: vscode
+    spec:
+      containers:
+      - name: nginxtest
+        image: localhost:5000/python:1.0.0

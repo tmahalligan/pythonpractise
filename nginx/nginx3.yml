@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx3
+  name: nginx3
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx3
+  template:
+    metadata:
+      labels:
+        app: nginx3
+    spec:
+      containers:
+      - image: localhost:5000/python:1.0.3
+        name: python
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 100m
+            memory: 100Mi
